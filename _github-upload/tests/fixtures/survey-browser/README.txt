@@ -1,1 +1,0 @@
-SYNTHETIC UI TEST ONLY. The one-pixel image and fictional observation are not real field evidence. Never bundled as the real project survey.
