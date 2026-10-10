@@ -1,0 +1,86 @@
+
+> disabledaccess@5.0.0 test
+> node test.cjs && node budget-data-test.cjs && node interaction-test.cjs && node --test tests/*.test.cjs
+
+PASS: all budget results, complementary repairs, unknown paths, multiple blockers, invalid data, pair deduplication, source immutability, and 435 route distances.
+Checks finished in 732 ms.
+PASS: money budgets, cost tie-breaks, resolved barriers, unknown paths, source references and Delhi connectivity.
+PASS: Delhi data, attribution, budgeted optimization, manual comparison, limits, before/after, resets, complementary repairs, unknown conditions, and persisted scenario edits. Browser layout not tested.
+✔ Exact Shapley efficiency and real removal counterfactuals (94.6366ms)
+✔ Shapley empty plan and selected-plan size cap (4.3123ms)
+✔ Pareto frontier contains no dominated point and reproduces plan gains (81.2266ms)
+✔ Bounded reachability cuts edges at actual distance and excludes blockers (1.9316ms)
+✔ Tarjan bridge loss is checked by actual disconnected pairs (3.2973ms)
+✔ Parallel usable edges are not graph bridges (1.8362ms)
+✔ Branch and bound reports expansion cutoff honestly (5.3777ms)
+✔ Branch and bound keeps complementary repairs and equals exhaustive reference (13.4561ms)
+✔ IndexedDB import cache persists raw evidence and retrieval date (18.7974ms)
+✔ city: exact contraction equivalence at limit 0 (47.558ms)
+✔ city: exact contraction equivalence at limit 1 (93.7233ms)
+✔ city: exact contraction equivalence at limit 2 (158.2046ms)
+✔ city: exact contraction equivalence at limit 3 (307.0555ms)
+✔ city: exact contraction equivalence at limit 4 (635.2401ms)
+✔ city: exact contraction equivalence at limit 5 (952.3767ms)
+✔ teaching: exact contraction equivalence at limit 0 (0.4494ms)
+✔ teaching: exact contraction equivalence at limit 1 (0.7494ms)
+✔ teaching: exact contraction equivalence at limit 2 (1.1031ms)
+✔ delhi: exact contraction equivalence at limit 0 (11.5525ms)
+✔ delhi: exact contraction equivalence at limit 1 (46.2732ms)
+✔ delhi: exact contraction equivalence at limit 2 (147.3818ms)
+✔ delhi: exact contraction equivalence at limit 3 (309.8925ms)
+✔ delhi: exact contraction equivalence at limit 4 (680.5631ms)
+✔ delhi: exact contraction equivalence at limit 5 (1128.9583ms)
+✔ Conjunctions, permanent blockers, directed fallback and resolved barriers (5.4609ms)
+✔ Deterministic results and source immutability (142.6107ms)
+✔ Greedy fails on complementary repair fixture; optimizer restores two pairs (1.7406ms)
+✔ Resolution cache merges distinct repairs resolving the same barrier without collisions (1.8407ms)
+✔ Import contracts homogeneous chains, keeps geometry and defaults to unknown (5.9783ms)
+✔ Explicit criteria and contradictory restrictions are conservative (0.7209ms)
+✔ Mapped kerb evidence creates hypothetical intervention without overriding unknown (3.4186ms)
+✔ Mapped steps remain incompatible after candidate intervention (3.0952ms)
+✔ Area caps and invalid rectangles fail clearly (1.4541ms)
+✔ Unordered destinations deduplicate and directed paths get both directions (2.5386ms)
+✔ Bundled real evidence has complete provenance and no fabricated compatible paths (12.6881ms)
+✔ Imported destinations scale to 60, then refuse additional points (11.3139ms)
+✔ Rejects more than 5,000 raw segments before contraction (20.768ms)
+✔ Launcher, static server and every first-party browser script parse (2713.7194ms)
+✔ Basemap failure tries independent OSM raster once before schematic (9.4922ms)
+✔ Offline rehearsal skips tile requests and distinctly labels fallback (2.3522ms)
+✔ Overpass tries ordered mirrors, caches success and refresh bypasses cache (16.2889ms)
+✔ Failed refresh retains previous snapshot and subsequent request respects cooldown (2.0127ms)
+✔ Property: optimal gain is monotone in budget (157.6284ms)
+✔ Property: gain never exceeds disconnected pairs (101.9692ms)
+✔ Property: every route uses usable edges and exactly matches distance (80.4169ms)
+✔ Property: inputs immutable and results byte-identical (105.8948ms)
+✔ Property: unordered pairs counted once and contraction matches reference (94.9056ms)
+✔ Survey CSV quotes, Google headers, KoBo geopoint and GeoJSON normalize (3.3415ms)
+✔ Snap retains outside points and intersection ambiguity; explicit selection bounded to 20m (22.9729ms)
+✔ Strict empty overlay reproduces previous engine output exactly (29.2986ms)
+✔ Assumptions never admit explicit restrictions; positive field evidence affects only linked edge (1.499ms)
+✔ Field blockers beat assumptions and their repair/cost remain hypothetical (1.5603ms)
+✔ Explicit incompatibility conflict surfaces; lowered kerb does not certify whole stretch (1.9166ms)
+✔ CLI creates labelled fixture overlay, copied photo and coverage without GPS fabrication (52.8338ms)
+✔ Photos-only CLI decodes real EXIF GPS fields and timestamp from a synthetic JPEG fixture (27.2489ms)
+✔ V4 UI optimizes, shows Shapley and clears stale results after budget changes (703.0205ms)
+✔ V4 UI area change evaluates evidence without auto-selecting a route (278.7353ms)
+✔ V4 UI reachability and criticality come from worker results and clear on view change (501.5776ms)
+✔ V4 UI import completes through a real worker with a mocked HTTP response (403.7316ms)
+✔ V4 UI failed HTTP import preserves the current dataset (166.9879ms)
+✔ V5 real starter, closed analysis, no auto-route and explicit missing evidence (427.6069ms)
+✔ V5 assumptions invalidate recommendations and compare modes computes both engine outputs (1764.4284ms)
+✔ V5 apply sequence uses actual prefix evaluations and real bounded flood (2559.7272ms)
+✔ V5 survey type review persists field evidence in app without changing unrelated edges (1338.1628ms)
+✔ V5 budget changes cancel an in-flight apply sequence (1549.1849ms)
+✔ Worker evaluates real jobs and streams progress (164.3448ms)
+✔ Worker returns actionable invalid-budget errors (54.3038ms)
+✔ No route is selected on load, reset or area change (7.317ms)
+✔ Invalidation clears stale plans and overlays (2.1048ms)
+✔ Worker imports raw OSM with bundled Turf, without any network dependency (99.3103ms)
+ℹ tests 70
+ℹ suites 0
+ℹ pass 70
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 14446.761

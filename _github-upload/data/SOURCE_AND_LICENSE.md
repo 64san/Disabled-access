@@ -1,0 +1,38 @@
+# Connaught Place data provenance
+
+Geographic data © OpenStreetMap contributors, under the Open Database License (ODbL) 1.0.
+
+- Attribution: https://www.openstreetmap.org/copyright
+- License: https://opendatacommons.org/licenses/odbl/1-0/
+- Exact public download: https://api.openstreetmap.org/api/0.6/map.json?bbox=77.2160,28.6280,77.2220,28.6335
+- Retrieval date: 2026-10-07.
+- Map: https://www.openstreetmap.org/#map=17/28.6300/77.2192
+- Derived database: `delhi-network.json`, also embedded in `dist/delhi-data.js` for offline use.
+
+The derived geographic database is distributed under ODbL 1.0. Preserve attribution and applicable share-alike obligations when redistributing modifications. The UI source is separate from the geographic database.
+
+## Transformation
+
+The display retains segments whose endpoints fall inside longitude 77.2170–77.2215 and latitude 28.6280–28.6320. Classes: secondary, tertiary, residential, service, footway, path, pedestrian and secondary_link. Explicit foot=no and access=no/private are excluded, as are steps and corridors. The largest connected component is retained; degree-two geometry nodes are merged into polylines. Distances sum geographic segment lengths, rounded to meters. Source OSM way IDs and endpoint coordinates are retained.
+
+The local projection compensates for latitude with a common horizontal/vertical scale. D1–D8 are spread-out graph locations, not named establishments. This clipped network is incomplete at its edges; omitted connections can affect reachability.
+
+## Real versus assumed
+
+**Source-derived:** coordinates, street names, geometry and lengths.
+
+**Assumptions:** bidirectional traversal, baseline path compatibility, six hypothetical point-access closures, repair costs and interventions. Each closure blocks all modeled links incident to its selected point. These are explicitly artificial test cases, not detected defects or observations about those locations.
+
+Road centerlines do not establish usable sidewalks. No wheelchair accessibility, sidewalk continuity, construction feasibility, current defect status or official validation is claimed. Do not use this as navigation guidance.
+
+The 375-pair result belongs to the separate fictional city fixture. Delhi results are independently computed from its 28 selected pairs.
+
+## v4 recorded evidence derivative
+
+`delhi-recorded.json` and `dist/recorded-data.js` are a second derivative of the same 2026-10-07 public extract, distributed under ODbL 1.0. They are separate from the hypothetical v3 dataset described above.
+
+The v4 importer retains footway, path, pedestrian, crossing, steps, living_street, residential and service ways. It retains all components, clips by endpoint inclusion, and contracts only homogeneous, undirected degree-two chains while retaining geometry, intersections, POIs and node barriers. 404 raw segments become 223 paths and 225 retained nodes. This differs deliberately from v3's largest-component scenario.
+
+180 paths are unknown and 43 incompatible under the simplified recorded-criteria profile. There are no inferred compatible paths. 29 mapped barrier candidates retain `osm` provenance; their proposed interventions and default costs are hypothetical. Eight initially chosen graph locations are illustrative destination choices, not observed travel demand. They produce 28 unordered pairs.
+
+Live imports request full OSM body data without editor/user metadata. Their raw replies and UTC retrieval date are cached locally in IndexedDB. Imported geometry remains OSM-derived data, and interventions remain separate assumptions. A failed request does not change the active area.
