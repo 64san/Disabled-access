@@ -1,0 +1,21 @@
+const assert=require('node:assert/strict');
+const E=require('./dist/engine.js');
+const [city,small]=E.datasets();
+const untouched=JSON.stringify(city);
+const start=performance.now();
+for(let i=0;i<=5;i++)assert.equal(E.recommend(city,i).recommended.newlyConnectedJourneyIds.length,[0,25,75,150,250,375][i]);
+const result=E.recommend(city,5);
+assert.equal(result.baseline.connectedCount,60);assert.equal(result.recommended.connectedCount,435);assert.equal(result.evaluatedPlanCount,638);
+assert(result.recommended.repairIds.every(id=>id.startsWith('BRIDGE')));
+assert.equal(JSON.stringify(city),untouched);
+assert.deepEqual(E.recommend(small,0).recommended.repairIds,[]);
+assert.deepEqual(E.recommend(small,1).recommended.repairIds,['R3']);
+assert.deepEqual(E.recommend(small,2).recommended.repairIds,['R1','R2']);
+for(const id of ['R1','R2'])assert.equal(E.evaluate(small,[id]).connectedCount,1);
+const unknown=structuredClone(small);unknown.paths.find(p=>p.id==='P2').fixedCompatibility='unknown';assert.equal(E.evaluate(unknown,['R1','R2']).connectedCount,1);
+const double=structuredClone(small);double.paths.find(p=>p.id==='P5').barrierIds.push('B1');assert.equal(E.evaluate(double,['R3']).connectedCount,1);assert.equal(E.evaluate(double,['R3','R1']).connectedCount,2);
+const invalid=structuredClone(small);invalid.paths[0].lengthMeters=-1;assert.throws(()=>E.validate(invalid));assert.throws(()=>E.recommend(city,6));
+const duplicate=structuredClone(city);duplicate.journeys.push({id:'duplicate',origin:'A2',destination:'A1'});assert.throws(()=>E.validate(duplicate));
+for(const journey of result.recommended.journeyResults){assert(journey.reachable);assert.equal(journey.distanceMeters,journey.pathIds.reduce((sum,id)=>sum+city.paths.find(p=>p.id===id).lengthMeters,0));assert(journey.pathIds.every(id=>result.recommended.usablePathIds.includes(id)));}
+console.log('PASS: all budget results, complementary repairs, unknown paths, multiple blockers, invalid data, pair deduplication, source immutability, and 435 route distances.');
+console.log(`Checks finished in ${Math.round(performance.now()-start)} ms.`);
